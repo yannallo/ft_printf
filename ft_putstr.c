@@ -6,7 +6,7 @@
 /*   By: yallo <yallo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:02:57 by yallo             #+#    #+#             */
-/*   Updated: 2022/12/15 19:28:12 by yallo            ###   ########.fr       */
+/*   Updated: 2022/12/16 14:55:42 by yallo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@ void	ft_putstr(char *s, int *ptr)
 
 	i = 0;
 	if (!s)
-		return ();
+	{
+		ft_putstr("(null)", ptr);
+		return ;
+	}
 	while (s[i])
 	{
-		if (!ft_putchar(s[i], ptr))
-			return (-1);
+		ft_putchar(s[i], ptr);
+		if (*ptr == -1)
+			return ;
 		i++;
 	}
-	return (i);
 }
