@@ -6,7 +6,7 @@
 /*   By: yallo <yallo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:10:16 by yallo             #+#    #+#             */
-/*   Updated: 2022/12/16 14:58:37 by yallo            ###   ########.fr       */
+/*   Updated: 2022/12/19 13:38:33 by yallo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 
 void	ft_putchar(int c, int *ptr);
 void	ft_putstr(char *s, int *ptr);
-void	ft_putnbr_base(int nbr, char *base, int *ptr);
-void	ft_putnbr(int nbr, int *ptr);
-void	ft_putnbr_unsigned(unsigned int nbr, int *ptr);
-void	ft_putaddr(void *addr, int *ptr);
+
 
 #endif
