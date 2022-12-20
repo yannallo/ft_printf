@@ -12,10 +12,12 @@
 
 #include "ft_printf.h"
 
-void	ft_putchar(int c, int *ptr)
+void	ft_putchar(int c, int *count)
 {
-	if (!write(1, &c, 1))
-		*ptr = -1;
+	if (*count == -1)
+		return ;
+	if (write(1, &c, 1) == -1)
+		*count = -1;
 	else
-		*ptr = *ptr + 1;
+		*count = *count + 1;
 }

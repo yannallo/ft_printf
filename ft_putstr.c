@@ -6,27 +6,22 @@
 /*   By: yallo <yallo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:02:57 by yallo             #+#    #+#             */
-/*   Updated: 2022/12/19 13:38:39 by yallo            ###   ########.fr       */
+/*   Updated: 2022/12/20 11:19:50 by yallo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *s, int *ptr)
+void	ft_putstr(char *s, int *count)
 {
 	size_t	i;
 
 	i = 0;
 	if (!s)
-	{
-		ft_putstr("(null)", ptr);
-		return ;
-	}
+		return (ft_putstr("(null)", count));
 	while (s[i])
 	{
-		ft_putchar(s[i], ptr);
-		if (*ptr == -1)
-			return ;
+		ft_putchar(s[i], count);
 		i++;
 	}
 }
