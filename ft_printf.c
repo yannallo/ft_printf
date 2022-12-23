@@ -27,7 +27,7 @@ void	check_arg(char c, va_list arg, int *count)
 	if ((c == 'd' || c == 'i'))
 		ft_putnbr(va_arg(arg, int), count);
 	if (c == 'u')
-		ft_putnbr(va_arg(arg, int), count);
+		ft_putnbr_base(va_arg(arg, unsigned int), 10, "0123456789", count);
 	if (c == 'x')
 		ft_putnbr_base(va_arg(arg, unsigned int), 16, \
 		"0123456789abcdef", count);

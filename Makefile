@@ -25,4 +25,7 @@ fclean: clean
 re: fclean 
 	$(MAKE) $(NAME)
 
+test:
+	cd ft_printf_tester && sh test m && cd ..
+
 .PHONY : all bonus clean fclean re
