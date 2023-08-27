@@ -1,31 +1,32 @@
 NAME = libftprintf.a
 
+CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c ft_putchar.c\
- ft_putstr.c ft_putnbr_base.c\
- ft_putnbr.c
+SRC_DIR = src
+OBJ_DIR = obj
 
-OBJ = $(SRC:.c=.o)
+HEADER = ft_printf.h
+SRC = $(wildcard $(SRC_DIR)/*.c)
+OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Makefile
 	ar rc $(NAME) $(OBJ)
 
-%.o: %.c $(HEADERS) Makefile
-	$(CC) $(FLAGS) -c $< -o $@ -I .
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER) Makefile | $(OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -rf $(OBJ) $(OBJ_B)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean 
-	$(MAKE) $(NAME)
+re: fclean all
 
-test:
-	cd ft_printf_tester && sh test m && cd ..
-
-.PHONY : all bonus clean fclean re
+.PHONY : all clean fclean re

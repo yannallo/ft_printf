@@ -6,11 +6,11 @@
 /*   By: yallo <yallo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:02:57 by yallo             #+#    #+#             */
-/*   Updated: 2022/12/20 11:19:50 by yallo            ###   ########.fr       */
+/*   Updated: 2023/08/27 17:48:15 by yallo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	ft_putstr(char *s, int *count)
 {

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void	check_arg(char c, va_list arg, int *count)
+static void	check_arg(char c, va_list arg, int *count)
 {
 	if (c == 'c')
 		ft_putchar(va_arg(arg, int), count);

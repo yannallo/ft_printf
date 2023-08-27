@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yallo <yallo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 11:10:16 by yallo             #+#    #+#             */
-/*   Updated: 2023/08/27 18:01:27 by yallo            ###   ########.fr       */
+/*   Created: 2022/12/20 01:06:37 by yallo             #+#    #+#             */
+/*   Updated: 2022/12/20 01:06:37 by yallo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <limits.h>
-
-int		ft_printf(const char *format, ...);
-void	ft_putchar(int c, int *count);
-void	ft_putnbr_base(long long unsigned int nbr, long long unsigned int size, \
-char *base, int *count);
-void	ft_putnbr(int nbr, int *count);
-void	ft_putstr(char *s, int *count);
-
-#endif
+void	ft_putnbr(int nbr, int *count)
+{
+	if (nbr == INT_MIN)
+		return (ft_putstr("-2147483648", count));
+	if (nbr < 0)
+	{
+		ft_putchar('-', count);
+		nbr = -nbr;
+	}
+	ft_putnbr_base(nbr, 10, "0123456789", count);
+}

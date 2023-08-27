@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yallo <yallo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 11:16:53 by yallo             #+#    #+#             */
-/*   Updated: 2022/12/19 13:38:36 by yallo            ###   ########.fr       */
+/*   Created: 2022/12/19 13:37:50 by yallo             #+#    #+#             */
+/*   Updated: 2022/12/19 13:37:50 by yallo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void	ft_putchar(int c, int *count)
+void	ft_putnbr_base(long long unsigned int nbr, long long unsigned int size, \
+char *base, int *count)
 {
-	if (*count == -1)
-		return ;
-	if (write(1, &c, 1) == -1)
-		*count = -1;
-	else
-		*count = *count + 1;
+	if (nbr > (size - 1))
+		ft_putnbr_base((nbr / size), size, base, count);
+	ft_putchar(base[nbr % size], count);
 }
