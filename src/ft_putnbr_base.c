@@ -6,16 +6,28 @@
 /*   By: yallo <yallo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:37:50 by yallo             #+#    #+#             */
-/*   Updated: 2022/12/19 13:37:50 by yallo            ###   ########.fr       */
+/*   Updated: 2023/12/15 13:24:34 by yallo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_base(long long unsigned int nbr, long long unsigned int size, \
-char *base, int *count)
+static int	ft_strlen(char *str)
 {
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void	ft_putnbr_base(long long unsigned int nbr, char *base, int *count)
+{
+	size_t	size;
+
+	size = ft_strlen(base);
 	if (nbr > (size - 1))
-		ft_putnbr_base((nbr / size), size, base, count);
+		ft_putnbr_base((nbr / size), base, count);
 	ft_putchar(base[nbr % size], count);
 }

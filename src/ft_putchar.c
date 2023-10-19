@@ -6,11 +6,11 @@
 /*   By: yallo <yallo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:16:53 by yallo             #+#    #+#             */
-/*   Updated: 2023/08/27 17:48:04 by yallo            ###   ########.fr       */
+/*   Updated: 2023/10/20 00:58:44 by yallo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(int c, int *count)
 {
@@ -19,5 +19,5 @@ void	ft_putchar(int c, int *count)
 	if (write(1, &c, 1) == -1)
 		*count = -1;
 	else
-		*count = *count + 1;
+		*count += 1;
 }
