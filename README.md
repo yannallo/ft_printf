@@ -1,18 +1,56 @@
-# ft_printf
+# Ft_printf
 
-## 📚 Description
+![Status](https://img.shields.io/badge/status-finished-success)
+![Language](https://img.shields.io/badge/language-C-blue)
 
-Réimplémentation de la fonction `printf` standard avec le support de certains types de conversion.
+## My own printf function
 
-## 🎯 Objectifs pédagogiques
+The goal of the project is to reimplement the printf function from the C standard library.
+It introduces to structured programming and variadic programming.
 
-- Manipulation de `va_list`
-- Formatage de chaînes
-- Conversion entre types de données
+## Supported format specifier
 
-## 🛠️ Installation
+| Specifier | Description |
+|----------|-------------|
+| `%c` | Single character |
+| `%s` | String |
+| `%p` | Pointer address |
+| `%d`, `%i`| Integer |
+| `%u` | Unsigned integer |
+| `%x`, `%X` | Hexadecimal (lower/uppercase) |
+| `%%` | Percent sign|
 
-```bash
-git clone https://github.com/<ton-user>/ft_printf.git
+## Installation
+
+Bash
+```
+# Clone depot
+git clone https://github.com/yannallo/ft_printf.git
+
+# Enter directory
 cd ft_printf
+
+# Build
 make
+```
+
+## Usage
+
+Just include the header in your file and link during compiling.
+e.g:
+
+Bash
+```
+gcc main.c -I./ft_printf/include -L./ft_printf -lftprintf
+```
+main.c
+``` 
+#include "ft_printf.h"
+
+int main(void)
+{
+  char s[15] = "Hello world !!";
+
+  ft_printf("Message:\n%s\n", s);
+  return 0;
+}
