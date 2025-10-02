@@ -10,12 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_putnbr(int nbr, int *count, int fd)
 {
 	if (nbr == INT_MIN)
-		return (ft_putstr("-2147483648", count, fd));
+	{
+		ft_putstr("-2147483648", count, fd);
+		return ;
+	}
 	if (nbr < 0)
 	{
 		ft_putchar('-', count, fd);

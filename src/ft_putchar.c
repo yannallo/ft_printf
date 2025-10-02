@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(int c, int *count, int fd)
 {
@@ -19,5 +19,5 @@ void	ft_putchar(int c, int *count, int fd)
 	if (write(fd, &c, 1) == -1)
 		*count = -1;
 	else
-		*count = *count + 1;
+		*count += 1;
 }

@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <limits.h>
 
-int		ft_printf(int fd, const char *format, ...);
+int	ft_printf(const char *format, ...);
 void	ft_putchar(int c, int *count, int fd);
 void	ft_putnbr_base(long long unsigned int nbr, char *base, int *count, int fd);
 void	ft_putnbr(int nbr, int *count, int fd);

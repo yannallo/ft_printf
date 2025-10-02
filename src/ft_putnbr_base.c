@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 static int	ft_strlen(char *str)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
 		i++;
-	return (i);
+	return i;
 }
 
 void	ft_putnbr_base(long long unsigned int nbr, char *base, int *count, int fd)
 {
-	int size;
+	size_t	size;
 
 	size = ft_strlen(base);
-	if ((int)nbr > (size - 1))
+	if (nbr > (size - 1))
 		ft_putnbr_base((nbr / size), base, count, fd);
 	ft_putchar(base[nbr % size], count, fd);
 }

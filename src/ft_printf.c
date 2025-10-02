@@ -10,51 +10,57 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 static void	check_arg(char c, va_list arg, int *count, int fd)
 {
 	if (c == 'c')
 		ft_putchar(va_arg(arg, int), count, fd);
-	if (c == 's')
+	else if (c == 's')
 		ft_putstr(va_arg(arg, char *), count, fd);
-	if (c == 'p')
+	else if (c == 'p')
 	{
-		ft_putstr("0x", count, fd);
-		ft_putnbr_base(va_arg(arg, long long unsigned int), "0123456789abcdef", count, fd);
+		long long unsigned int tmp = va_arg(arg, long long unsigned int);
+		if (tmp == 0)
+			ft_putstr("(nil)", count, fd);
+		else
+		{
+			ft_putstr("0x", count, fd);
+			ft_putnbr_base(tmp, "0123456789abcdef", count, fd);
+		}
 	}
-	if ((c == 'd' || c == 'i'))
+	else if ((c == 'd' || c == 'i'))
 		ft_putnbr(va_arg(arg, int), count, fd);
-	if (c == 'u')
+	else if (c == 'u')
 		ft_putnbr_base(va_arg(arg, unsigned int), "0123456789", count, fd);
-	if (c == 'x')
+	else if (c == 'x')
 		ft_putnbr_base(va_arg(arg, unsigned int), "0123456789abcdef", count, fd);
-	if (c == 'X')
+	else if (c == 'X')
 		ft_putnbr_base(va_arg(arg, unsigned int), "0123456789ABCDEF", count, fd);
-	if (c == '%')
+	else if (c == '%')
 		ft_putchar('%', count, fd);
 }
 
-int	ft_printf(int fd, const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	int		i;
-	int		count;
+	int	count;
+	size_t	i;
 	va_list	arg;
 
 	i = 0;
 	count = 0;
 	va_start(arg, format);
-	while (format[i] != '\0')
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			check_arg(format[i], arg, &count, fd);
+			check_arg(format[i], arg, &count, 1);
 		}
 		else
-			ft_putchar(format[i], &count, fd);
+			ft_putchar(format[i], &count, 1);
 		i++;
 	}
 	va_end(arg);
-	return (count);
+	return count;
 }
