@@ -24,7 +24,7 @@ It introduces to structured programming and variadic programming.
 
 Bash
 ```
-# Clone depot
+# Clone repository
 git clone https://github.com/yannallo/ft_printf.git
 
 # Enter directory
@@ -36,7 +36,7 @@ make
 
 ## Usage
 
-Just include the header in your file and link during compiling.
+Just include the header in your file and link during compilation.
 e.g:
 
 Bash
