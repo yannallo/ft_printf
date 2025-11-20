@@ -1,12 +1,14 @@
 # Ft_printf
 
-![Status](https://img.shields.io/badge/status-finished-success)
-![Language](https://img.shields.io/badge/language-C-blue)
+![Status](https://img.shields.io/badge/Status-Finished-success)
+![Language](https://img.shields.io/badge/Language-C-blue)
+![Norminette](https://img.shields.io/badge/Norminette-%E2%9C%93-success)
 
 ## My own printf function
 
-The goal of the project is to reimplement the printf function from the C standard library.
-It introduces to structured programming and variadic programming.
+This is a reimplementation of the `printf` function from the C standard library.
+It introduces to structured programming, variadic programming and number base conversions.
+
 
 ## Supported format specifier
 
@@ -22,29 +24,24 @@ It introduces to structured programming and variadic programming.
 
 ## Installation
 
-Bash
-```
+```Bash
 # Clone repository
 git clone https://github.com/yannallo/ft_printf.git
 
-# Enter directory
-cd ft_printf
-
 # Build
-make
+make -C ft_printf
 ```
 
 ## Usage
 
-Just include the header in your file and link during compilation.
-e.g:
+Include the header in your file and link during compilation.
 
-Bash
-```
+```Bash
 gcc main.c -Ift_printf -Lft_printf -lftprintf
 ```
-main.c
-``` 
+
+### Example `main.c`
+```C 
 #include "ft_printf.h"
 
 int main(void)
