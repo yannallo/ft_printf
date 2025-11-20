@@ -37,7 +37,7 @@ make -C ft_printf
 Include the header in your file and link during compilation.
 
 ```Bash
-gcc -Ift_printf main.c -Lft_printf -lftprintf
+gcc -Ift_printf main.c -Lft_printf -lftprintf -o test
 ```
 
 ### Example `main.c`
